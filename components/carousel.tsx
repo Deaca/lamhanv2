@@ -3,6 +3,8 @@
 import { useState, useEffect, useCallback } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
+
 
 interface CarouselProps {
   images: {
@@ -36,7 +38,7 @@ export function Carousel({ images, autoSlideInterval = 5000 }: CarouselProps) {
       >
         {images.map((image, index) => (
           <div key={index} className="w-full h-full flex-shrink-0">
-            <img src={image.src || "/placeholder.svg"} alt={image.alt} className="w-full h-full object-cover" />
+            <Image src={image.src || "/placeholder.svg"} alt={image.alt} className="w-full h-full object-cover" />
           </div>
         ))}
       </div>

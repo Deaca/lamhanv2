@@ -2,6 +2,9 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { FadeInSection } from "@/components/fade-in-section"
 import { ShoppingBag } from "lucide-react"
+import Image from "next/image"
+
+
 
 interface MerchandiseProps {
   bgColor?: string
@@ -58,7 +61,7 @@ export default function Merchandise({
             <FadeInSection key={index} delay={0.1 * index}>
               <Card className="overflow-hidden bg-custom-white">
                 <div className="h-48 relative">
-                  <img
+                  <Image
                     src={item.image || "/placeholder.svg"}
                     alt={item.name}
                     className="absolute inset-0 w-full h-full object-cover"

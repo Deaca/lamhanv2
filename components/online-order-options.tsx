@@ -63,7 +63,7 @@ export default function OnlineOrderOptions() {
         <div className="bg-custom-orange/10 backdrop-blur-sm rounded-lg p-8 text-center border border-custom-orange/20 shadow-md">
           <h3 className="text-2xl font-semibold text-custom-orange mb-4">Prefer to order directly?</h3>
           <p className="text-custom-dark-gray mb-6 max-w-2xl mx-auto">
-            Call us at (123) 456-7890 to place your order for pickup. We'll have it ready when you arrive!
+            Call us at (123) 456-7890 to place your order for pickup. We&apos;ll have it ready when you arrive!
           </p>
           <Button size="lg" className="bg-custom-teal text-custom-dark-gray hover:bg-custom-teal/90" asChild>
             <a href="tel:+11234567890">Call to Order</a>

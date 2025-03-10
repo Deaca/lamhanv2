@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { FadeInSection } from "@/components/fade-in-section"
+import Image from "next/image"
+
 
 export default function AboutUs() {
   return (
@@ -50,12 +52,12 @@ export default function AboutUs() {
           <div className="grid grid-cols-2 gap-4">
             <FadeInSection delay={0.3}>
               <div className="space-y-4">
-                <img
+                <Image
                   src="/img/img1.webp"
                   alt="Fresh baked baguettes"
                   className="rounded-lg w-full h-48 object-cover"
                 />
-                <img
+                <Image
                   src="/img/img2.webp"
                   alt="Banh mi preparation"
                   className="rounded-lg w-full h-64 object-cover"
@@ -65,12 +67,12 @@ export default function AboutUs() {
 
             <FadeInSection delay={0.4}>
               <div className="space-y-4 pt-8">
-                <img
+                <Image
                   src="/img/img3.webp"
                   alt="Steaming bao buns"
                   className="rounded-lg w-full h-64 object-cover"
                 />
-                <img
+                <Image
                   src="/img/img1.webp"
                   alt="Fresh ingredients"
                   className="rounded-lg w-full h-48 object-cover"

@@ -3,6 +3,8 @@ import { Card } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { FadeInSection } from "@/components/fade-in-section"
 import { SectionHeader } from "@/components/section-header"
+import Image from "next/image"
+
 
 const menuCategories = [
   {
@@ -145,7 +147,7 @@ export default function Menu() {
                   <FadeInSection key={index} delay={0.1 * index}>
                     <Card className="overflow-hidden">
                       <div className="relative">
-                        <img
+                        <Image
                           src={item.image || "/placeholder.svg"}
                           alt={item.name}
                           className="w-full h-48 object-cover"

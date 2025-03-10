@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
+import Image from "next/image"
+
 
 const deliveryPlatforms = [
   {
@@ -33,7 +35,7 @@ export default function OnlineOrdering() {
         <div className="grid md:grid-cols-3 gap-8">
           {deliveryPlatforms.map((platform, index) => (
             <Card key={index} className="p-6 text-center hover:shadow-lg transition-shadow">
-              <img src={platform.logo || "/placeholder.svg"} alt={platform.name} className="w-24 h-24 mx-auto mb-4" />
+              <Image src={platform.logo || "/placeholder.svg"} alt={platform.name} className="w-24 h-24 mx-auto mb-4" />
               <h3 className="text-xl font-semibold text-custom-dark-gray mb-4">{platform.name}</h3>
               <Button asChild className="w-full bg-custom-orange hover:bg-custom-orange-dark text-custom-white">
                 <a href={platform.link} target="_blank" rel="noopener noreferrer">
