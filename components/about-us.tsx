@@ -41,10 +41,6 @@ export default function AboutUs() {
                 </div>
               </div>
             </FadeInSection>
-
-            <FadeInSection delay={0.5}>
-              <Button>Learn More About Us</Button>
-            </FadeInSection>
           </div>
 
           <div className="grid grid-cols-2 gap-4">
