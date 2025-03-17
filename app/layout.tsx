@@ -1,6 +1,25 @@
 import type React from "react"
 import "@/app/globals.css"
 import FixedOrderButton from "@/components/fixed-order-button"
+import { Montserrat, Playfair_Display } from "next/font/google"
+
+// Load fonts
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-montserrat",
+})
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-playfair",
+})
+
+export const metadata = {
+  title: "Lamhan Banh Mi - Vietnamese Restaurant",
+  description: "Authentic Vietnamese cuisine in the heart of the city",
+}
 
 export default function RootLayout({
   children,
@@ -8,16 +27,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body>
+    <html lang="en" className={`${montserrat.variable} ${playfair.variable}`}>
+      <body className="font-sans">
           {children}
           <FixedOrderButton />
       </body>

@@ -1,3 +1,6 @@
+/** @type {import('tailwindcss').Config} */
+import tailwindcssAnimate from 'tailwindcss-animate';
+
 module.exports = {
   darkMode: ["class"],
   content: [
@@ -52,12 +55,12 @@ module.exports = {
         },
         // Custom colors
         custom: {
-          orange: "#FF8E33",
-          "dark-orange": "#E67300", // Darker orange for contrast
-          teal: "#2DD4BF", // Teal for buttons and accents
-          white: "#FFFFFF",
-          "dark-gray": "#333333",
-          "light-gray": "#F5F5F5",
+          orange: "#FF8E33", // Primary orange
+          "dark-orange": "#E67300", // Darker orange for contrast and hover states
+          teal: "#2DD4BF", // Teal for accents and interactive elements
+          white: "#FFFFFF", // Pure white for text and backgrounds
+          "dark-gray": "#333333", // Dark gray for text and headings
+          "light-gray": "#F5F5F5", // Light gray for backgrounds and dividers
         },
       },
       borderRadius: {
@@ -85,6 +88,6 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [tailwindcssAnimate],
 }
 
