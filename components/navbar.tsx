@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import Image from "next/image"
+
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -28,8 +30,8 @@ export default function Navbar() {
   }, [])
 
   const navLinks = [
-    { href: "/order", label: "Order" },
-    { href: pathname === "/" ? "#about" : "/#about", label: "About" },
+    { href: "/order", label: "Order Online" },
+    { href: "https://www.foodbooking.com/ordering/restaurant/menu?company_uid=5248587b-48ec-4ab1-8621-25d81693f8ee&restaurant_uid=2803ea39-fbd9-4d92-953a-37f1b0ae9671", label: "Catering" },
     { href: "/merchandise", label: "Shop" },
   ]
 
@@ -65,7 +67,13 @@ export default function Navbar() {
           {/* Logo and Restaurant Name */}
           <Link href="/" className="flex items-center space-x-3">
             <div className="w-10 h-10 md:w-12 md:h-12 bg-custom-orange rounded-full flex items-center justify-center">
-              <span className="text-lg md:text-xl font-bold text-custom-white font-serif">LB</span>
+            <Image
+               src="/img/lamhan-logo.gif" // Adjust the path if necessary
+               alt="Lanhan Logo"
+               width={50} // Set the desired width of the logo
+               height={50} // Set the desired height of the logo
+               className="w-auto h-auto"
+             />
             </div>
             <span className="text-xl md:text-2xl font-bold text-custom-white font-serif truncate">Lamhan Banhmi</span>
           </Link>

@@ -6,7 +6,7 @@ import { MultiImageSlider } from "@/components/multi-image-slider"
 export default function AboutUs() {
   return (
     <section className="py-20 bg-custom-light-gray" id="about">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 max-w-[1600px]" >
         <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
           <div className="space-y-6">
             <FadeInSection>
@@ -91,7 +91,6 @@ export default function AboutUs() {
         {/* Multi-image gallery slider */}
         <FadeInSection delay={0.4}>
           <div className="mt-12">
-            <h3 className="text-2xl font-bold text-custom-dark-gray mb-6 text-center">Our Gallery</h3>
             <div className="rounded-lg overflow-hidden shadow-xl">
               <MultiImageSlider images={galleryImages} />
             </div>
@@ -104,37 +103,37 @@ export default function AboutUs() {
 
 const galleryImages = [
   {
-    src: "/placeholder.svg?height=600&width=800",
+    src: "/img/600x800.png",
     alt: "Fresh ingredients for Bánh Mì",
     caption: "Fresh Ingredients",
   },
   {
-    src: "/placeholder.svg?height=600&width=800",
+    src: "/img/600x800.png",
     alt: "Chef preparing Vietnamese dishes",
     caption: "Expert Preparation",
   },
   {
-    src: "/placeholder.svg?height=600&width=800",
+    src: "/img/600x800.png",
     alt: "Restaurant dining area",
     caption: "Cozy Atmosphere",
   },
   {
-    src: "/placeholder.svg?height=600&width=800",
+    src: "/img/600x800.png",
     alt: "Traditional Vietnamese cooking",
     caption: "Traditional Methods",
   },
   {
-    src: "/placeholder.svg?height=600&width=800",
+    src: "/img/600x800.png",
     alt: "Bánh Mì sandwich preparation",
     caption: "Bánh Mì Craft",
   },
   {
-    src: "/placeholder.svg?height=600&width=800",
+    src: "/img/600x800.png",
     alt: "Customers enjoying our food",
     caption: "Happy Customers",
   },
   {
-    src: "/placeholder.svg?height=600&width=800",
+    src: "/img/600x800.png",
     alt: "Vietnamese coffee preparation",
     caption: "Vietnamese Coffee",
   },

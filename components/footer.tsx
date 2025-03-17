@@ -1,6 +1,8 @@
 import { Facebook, Instagram, Twitter, MapPin, Phone, Mail, Clock } from "lucide-react"
 import { FadeInSection } from "@/components/fade-in-section"
 import Link from "next/link"
+import Image from "next/image"
+
 
 export default function Footer() {
   return (
@@ -11,7 +13,13 @@ export default function Footer() {
             <div>
               <div className="flex items-center space-x-3 mb-4">
                 <div className="w-10 h-10 bg-custom-orange rounded-full flex items-center justify-center">
-                  <span className="text-lg font-bold text-custom-white font-serif">LB</span>
+                <Image
+               src="/img/lamhan-logo.gif" // Adjust the path if necessary
+               alt="Lanhan Logo"
+               width={50} // Set the desired width of the logo
+               height={50} // Set the desired height of the logo
+               className="w-auto h-auto"
+             />
                 </div>
                 <h3 className="text-xl font-bold text-custom-orange font-serif">Lamhan Banhmi</h3>
               </div>

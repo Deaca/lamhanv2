@@ -12,6 +12,7 @@ export default function RestaurantImage() {
             speed={0.5}
             overlayOpacity={0.3}
             className="w-full h-full"
+
           />
         </div>
       </FadeInSection>
