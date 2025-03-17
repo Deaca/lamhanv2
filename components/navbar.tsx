@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import Image from "next/image"
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -29,6 +28,8 @@ export default function Navbar() {
   }, [])
 
   const navLinks = [
+    { href: "/order", label: "Order" },
+    { href: pathname === "/" ? "#about" : "/#about", label: "About" },
     { href: "/merchandise", label: "Shop" },
   ]
 
@@ -52,52 +53,44 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-custom-orange shadow-md py-2" : isWhiteBgPage ? "bg-custom-orange py-4" : "bg-transparent py-4"
+        isScrolled
+          ? "bg-custom-dark-gray shadow-md py-3"
+          : isWhiteBgPage
+            ? "bg-custom-dark-gray py-5"
+            : "bg-custom-dark-gray/70 backdrop-blur-sm py-5 border-b border-white/10"
       }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="text-2xl font-bold text-custom-white">
-          <Image
-              src="/img/lamhan-logo.gif" // Adjust the path if necessary
-              alt="Lanhan Logo"
-              width={50} // Set the desired width of the logo
-              height={50} // Set the desired height of the logo
-              className="w-auto h-auto"
-            />
+          {/* Logo and Restaurant Name */}
+          <Link href="/" className="flex items-center space-x-3">
+            <div className="w-10 h-10 md:w-12 md:h-12 bg-custom-orange rounded-full flex items-center justify-center">
+              <span className="text-lg md:text-xl font-bold text-custom-white font-serif">LB</span>
+            </div>
+            <span className="text-xl md:text-2xl font-bold text-custom-white font-serif truncate">Lamhan Banhmi</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-10">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-custom-white hover:text-custom-teal transition-colors relative ${
+                className={`text-xl font-medium text-custom-white hover:text-custom-teal transition-colors relative font-sans ${
                   isLinkActive(link.href)
-                    ? "after:absolute after:bottom-[-6px] after:left-0 after:w-full after:h-[3px] after:bg-custom-teal"
+                    ? "after:absolute after:bottom-[-8px] after:left-0 after:w-full after:h-[3px] after:bg-custom-teal"
                     : ""
                 }`}
               >
                 {link.label}
               </Link>
             ))}
-            <Link href="/order">
-              <Button
-                className={`bg-custom-teal text-custom-dark-gray hover:bg-custom-teal/90 ${
-                  pathname === "/order" ? "ring-2 ring-white" : ""
-                }`}
-              >
-                Order Now
-              </Button>
-            </Link>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">
             <Button variant="ghost" size="icon" className="text-custom-white" onClick={() => setIsOpen(!isOpen)}>
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isOpen ? <X className="h-8 w-8" /> : <Menu className="h-8 w-8" />}
             </Button>
           </div>
         </div>
@@ -110,7 +103,7 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`block px-3 py-2 rounded-md ${
+                  className={`block px-3 py-3 rounded-md text-lg ${
                     isLinkActive(link.href)
                       ? "bg-custom-orange/10 text-custom-orange font-medium border-l-4 border-custom-orange"
                       : "text-custom-dark-gray hover:text-custom-orange"
@@ -120,17 +113,6 @@ export default function Navbar() {
                   {link.label}
                 </Link>
               ))}
-              <div className="px-3 py-2">
-                <Link href="/order" onClick={() => setIsOpen(false)}>
-                  <Button
-                    className={`w-full bg-custom-teal text-custom-dark-gray hover:bg-custom-teal/90 ${
-                      pathname === "/order" ? "ring-2 ring-custom-orange" : ""
-                    }`}
-                  >
-                    Order Now
-                  </Button>
-                </Link>
-              </div>
             </div>
           </div>
         )}

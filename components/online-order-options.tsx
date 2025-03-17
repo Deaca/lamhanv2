@@ -1,31 +1,32 @@
 import { Button } from "@/components/ui/button"
 import { FadeInSection } from "@/components/fade-in-section"
-import { ExternalLink } from "lucide-react"
+import { ExternalLink, Phone, ShoppingBag } from "lucide-react"
+import Link from "next/link"
 import Image from "next/image"
 
 const deliveryPartners = [
   {
     name: "UberEats",
     logo: "/img/ubereat.jpeg",
-    link: "https://www.ubereats.com/ca/store/lamhan-banh-mi/f3IoOGGzRaaNlDXgF9qkoA",
+    link: "https://www.ubereats.com",
     description: "Order delivery through UberEats",
   },
   {
     name: "DoorDash",
-    logo: "/img/doordash.jpeg",
-    link: "https://www.doordash.com/store/lamhan-toronto-2294823/",
+    logo: "/img/doordash.png",
+    link: "https://www.doordash.com",
     description: "Get your favorite dishes via DoorDash",
   },
   {
     name: "Ritual",
     logo: "/img/ritual.jpeg",
-    link: "https://ritual.co/order/lamhan-banh-mi-bloor-christie-toronto/0b25",
+    link: "https://www.ritual.co",
     description: "Order ahead and skip the line with Ritual",
   },
   {
     name: "Fantuan",
     logo: "/img/fantuan.png",
-    link: "https://www.fantuanorder.com/store/-lamhan-banh-mi/ca-17145",
+    link: "https://www.fantuan.ca",
     description: "Order through Fantuan for fast delivery",
   },
 ]
@@ -33,43 +34,55 @@ const deliveryPartners = [
 export default function OnlineOrderOptions() {
   return (
     <div className="py-8">
+      {/* "Prefer to order directly" section above the cards */}
+      <FadeInSection delay={0.1}>
+        <div className="bg-custom-orange/10 backdrop-blur-sm rounded-lg p-8 text-center border border-custom-orange/20 shadow-md mb-12">
+          <h3 className="text-2xl font-semibold text-custom-orange mb-4">Prefer to order directly?</h3>
+          <p className="text-custom-dark-gray mb-6 max-w-2xl mx-auto">
+            Call us to place your order or use our online form to order for pickup. We&apos;ll have your delicious food ready
+            when you arrive!
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <Link href="tel:+11234567890" passHref>
+              <Button size="lg">
+                <Phone className="mr-2 h-5 w-5" />
+                Call to Order
+              </Button>
+            </Link>
+
+            <Link href="https://www.foodbooking.com/ordering/restaurant/menu?company_uid=5248587b-48ec-4ab1-8621-25d81693f8ee&restaurant_uid=2803ea39-fbd9-4d92-953a-37f1b0ae9671" passHref>
+              <Button size="lg">
+                <ShoppingBag className="mr-2 h-5 w-5" />
+                Pickup Order
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </FadeInSection>
+
+      <h3 className="text-xl font-semibold text-custom-dark-gray mb-6">Order through our delivery partners</h3>
+
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
         {deliveryPartners.map((partner, index) => (
           <FadeInSection key={index} delay={0.1 * index}>
-            <div className="bg-white rounded-lg p-8 text-center hover:shadow-lg transition-shadow h-full flex flex-col border border-gray-100 shadow-md hover:border-custom-orange/20">
+            <div className="bg-orange-50 rounded-lg p-8 text-center hover:shadow-lg transition-shadow h-full flex flex-col border border-orange-100 shadow-md hover:border-custom-orange/20">
               <div className="flex-grow">
-                <Image
-                  src={partner.logo || "/placeholder.svg"}
-                  alt={partner.name}
-                  className="w-32 h-32 mx-auto mb-6 object-contain"
-                  width={100}
-                  height={100}
-                />
+                <div className="relative w-32 h-32 mx-auto mb-6">
+                  <Image src={partner.logo || "/placeholder.svg"} alt={partner.name} fill className="object-contain" />
+                </div>
                 <h3 className="text-xl font-semibold text-custom-dark-gray mb-2">{partner.name}</h3>
                 <p className="text-custom-dark-gray/80 mb-6">{partner.description}</p>
               </div>
-              <Button className="bg-custom-teal text-custom-dark-gray hover:bg-custom-teal/90 w-full" asChild>
-                <a href={partner.link} target="_blank" rel="noopener noreferrer">
+              <a href={partner.link} target="_blank" rel="noopener noreferrer">
+                <Button className="w-full">
                   Order on {partner.name}
                   <ExternalLink className="ml-2 h-4 w-4" />
-                </a>
-              </Button>
+                </Button>
+              </a>
             </div>
           </FadeInSection>
         ))}
       </div>
-
-      <FadeInSection delay={0.5}>
-        <div className="bg-custom-orange/10 backdrop-blur-sm rounded-lg p-8 text-center border border-custom-orange/20 shadow-md">
-          <h3 className="text-2xl font-semibold text-custom-orange mb-4">Prefer to order directly?</h3>
-          <p className="text-custom-dark-gray mb-6 max-w-2xl mx-auto">
-            Call us at (123) 456-7890 to place your order for pickup. We&apos;ll have it ready when you arrive!
-          </p>
-          <Button size="lg" className="bg-custom-teal text-custom-dark-gray hover:bg-custom-teal/90" asChild>
-            <a href="tel:+11234567890">Call to Order</a>
-          </Button>
-        </div>
-      </FadeInSection>
     </div>
   )
 }

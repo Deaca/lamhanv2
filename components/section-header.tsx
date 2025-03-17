@@ -16,7 +16,7 @@ export function SectionHeader({
   return (
     <div className={`text-center mb-12 ${className}`}>
       <FadeInSection>
-        <h2 className={`pt-5 text-4xl font-bold ${textColor} mb-4`}>{title}</h2>
+        <h2 className={`text-4xl font-bold ${textColor} mb-4`}>{title}</h2>
       </FadeInSection>
 
       {subtitle && (

@@ -5,7 +5,6 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 
-
 interface CarouselProps {
   images: {
     src: string
@@ -37,8 +36,8 @@ export function Carousel({ images, autoSlideInterval = 5000 }: CarouselProps) {
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
         {images.map((image, index) => (
-          <div key={index} className="w-full h-full flex-shrink-0">
-            <Image src={image.src || "/placeholder.svg"} alt={image.alt} className="w-full h-full object-cover" />
+          <div key={index} className="w-full h-full flex-shrink-0 relative">
+            <Image src={image.src || "/placeholder.svg"} alt={image.alt} fill className="object-cover" />
           </div>
         ))}
       </div>
@@ -71,7 +70,7 @@ export function Carousel({ images, autoSlideInterval = 5000 }: CarouselProps) {
               key={index}
               onClick={() => setCurrentIndex(index)}
               className={`w-2.5 h-2.5 rounded-full transition-colors ${
-                currentIndex === index ? "bg-custom-white" : "bg-custom-white/50"
+                currentIndex === index ? "bg-[#53ea4b]" : "bg-custom-white/50"
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />

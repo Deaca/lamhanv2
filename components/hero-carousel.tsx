@@ -1,15 +1,13 @@
 "use client"
 
 import { useState, useEffect, useCallback } from "react"
-import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react"
+import { ChevronLeft, ChevronRight, ArrowRight, Facebook, Instagram, Twitter } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import Image from "next/image"
 
 interface CarouselSlide {
   image: string
-  title: string
-  description: string
   buttonText: string
   buttonLink: string
   secondaryButtonText?: string
@@ -56,14 +54,16 @@ export function HeroCarousel({ slides, autoSlideInterval = 6000 }: HeroCarouselP
             }`}
           >
             <div className="absolute inset-0 bg-custom-dark-gray/40 z-10" />
-            <Image src={slide.image} alt={slide.title} className="w-full h-full object-cover" width={1920} height={1080}/>
+            <div className="relative w-full h-full">
+              <Image src={slide.image || "/placeholder.svg"} alt="Hero image" fill className="object-cover" />
+            </div>
           </div>
         ))}
       </div>
 
       {/* Content */}
-      <div className="relative z-20 h-full flex items-center">
-        <div className="container mx-auto px-16 md:px-20 text-center md:text-left">
+      <div className="relative z-20 h-full flex flex-col items-center justify-center">
+        <div className="container mx-auto px-4 text-center">
           {slides.map((slide, index) => (
             <div
               key={index}
@@ -72,19 +72,10 @@ export function HeroCarousel({ slides, autoSlideInterval = 6000 }: HeroCarouselP
               }`}
             >
               {currentIndex === index && (
-                <>
-                  <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4 text-custom-white">
-                    {slide.title}
-                  </h1>
-                  <p className="text-lg md:text-xl max-w-2xl mx-auto md:mx-0 mb-8 text-custom-white">
-                    {slide.description}
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                <div className="flex flex-col items-center">
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Link href={slide.buttonLink}>
-                      <Button
-                        size="lg"
-                        className="bg-custom-teal text-custom-dark-gray hover:bg-custom-teal/90 w-full sm:w-auto"
-                      >
+                      <Button size="lg">
                         {slide.buttonText}
                         <ArrowRight className="ml-2 h-5 w-5" />
                       </Button>
@@ -95,14 +86,39 @@ export function HeroCarousel({ slides, autoSlideInterval = 6000 }: HeroCarouselP
                         <Button
                           size="lg"
                           variant="outline"
-                          className="border-custom-white text-custom-white hover:bg-custom-white hover:text-custom-dark-gray w-full sm:w-auto"
+                          className="border-custom-white text-custom-white hover:bg-custom-white hover:text-custom-dark-gray"
                         >
                           {slide.secondaryButtonText}
                         </Button>
                       </Link>
                     )}
                   </div>
-                </>
+
+                  {/* Social Media Icons */}
+                  <div className="flex space-x-6 mt-8">
+                    <a
+                      href="#"
+                      className="text-custom-white hover:text-[#53ea4b] transition-colors"
+                      aria-label="Facebook"
+                    >
+                      <Facebook className="w-7 h-7" />
+                    </a>
+                    <a
+                      href="#"
+                      className="text-custom-white hover:text-[#53ea4b] transition-colors"
+                      aria-label="Instagram"
+                    >
+                      <Instagram className="w-7 h-7" />
+                    </a>
+                    <a
+                      href="#"
+                      className="text-custom-white hover:text-[#53ea4b] transition-colors"
+                      aria-label="Twitter"
+                    >
+                      <Twitter className="w-7 h-7" />
+                    </a>
+                  </div>
+                </div>
               )}
             </div>
           ))}
@@ -115,9 +131,9 @@ export function HeroCarousel({ slides, autoSlideInterval = 6000 }: HeroCarouselP
           onClick={prev}
           size="icon"
           variant="outline"
-          className="rounded-full bg-custom-white/20 border-custom-white/40 backdrop-blur-sm hover:bg-custom-white/40"
+          className="rounded-full bg-custom-white/20 border-custom-white/40 backdrop-blur-sm hover:bg-custom-white/40 h-8 w-8 md:h-10 md:w-10"
         >
-          <ChevronLeft className="h-6 w-6 text-custom-white" />
+          <ChevronLeft className="h-4 w-4 md:h-6 md:w-6 text-custom-white" />
         </Button>
       </div>
 
@@ -126,9 +142,9 @@ export function HeroCarousel({ slides, autoSlideInterval = 6000 }: HeroCarouselP
           onClick={next}
           size="icon"
           variant="outline"
-          className="rounded-full bg-custom-white/20 border-custom-white/40 backdrop-blur-sm hover:bg-custom-white/40"
+          className="rounded-full bg-custom-white/20 border-custom-white/40 backdrop-blur-sm hover:bg-custom-white/40 h-8 w-8 md:h-10 md:w-10"
         >
-          <ChevronRight className="h-6 w-6 text-custom-white" />
+          <ChevronRight className="h-4 w-4 md:h-6 md:w-6 text-custom-white" />
         </Button>
       </div>
 
@@ -145,8 +161,8 @@ export function HeroCarousel({ slides, autoSlideInterval = 6000 }: HeroCarouselP
                   setTimeout(() => setIsTransitioning(false), 500)
                 }
               }}
-              className={`w-3 h-3 rounded-full transition-colors ${
-                currentIndex === index ? "bg-custom-teal" : "bg-custom-white/50"
+              className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-colors ${
+                currentIndex === index ? "bg-[#53ea4b]" : "bg-custom-white/50"
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />

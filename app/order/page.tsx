@@ -3,7 +3,6 @@ import Footer from "@/components/footer"
 import { FadeInSection } from "@/components/fade-in-section"
 import { SectionHeader } from "@/components/section-header"
 import OnlineOrderOptions from "@/components/online-order-options"
-import LocationSection from "@/components/location-section"
 
 export default function OrderPage() {
   return (
@@ -19,9 +18,6 @@ export default function OrderPage() {
             />
           </FadeInSection>
           <OnlineOrderOptions />
-          <div className="mt-20">
-            <LocationSection textColor="text-custom-orange" />
-          </div>
         </div>
       </div>
       <Footer />

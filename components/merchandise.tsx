@@ -4,8 +4,6 @@ import { FadeInSection } from "@/components/fade-in-section"
 import { ShoppingBag } from "lucide-react"
 import Image from "next/image"
 
-
-
 interface MerchandiseProps {
   bgColor?: string
   textColor?: string
@@ -61,11 +59,7 @@ export default function Merchandise({
             <FadeInSection key={index} delay={0.1 * index}>
               <Card className="overflow-hidden bg-custom-white">
                 <div className="h-48 relative">
-                  <Image
-                    src={item.image || "/placeholder.svg"}
-                    alt={item.name}
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
+                  <Image src={item.image || "/placeholder.svg"} alt={item.name} fill className="object-cover" />
                 </div>
                 <div className="p-4">
                   <div className="flex justify-between items-start mb-2">
@@ -73,7 +67,7 @@ export default function Merchandise({
                     <span className="font-bold text-custom-orange">${item.price.toFixed(2)}</span>
                   </div>
                   <p className="text-sm text-custom-dark-gray/80 mb-4">{item.description}</p>
-                  <Button className="w-full bg-custom-teal text-custom-dark-gray hover:bg-custom-teal/90">
+                  <Button className="w-full">
                     <ShoppingBag className="mr-2 h-4 w-4" />
                     Add to Cart
                   </Button>

@@ -3,7 +3,6 @@ import { SectionHeader } from "@/components/section-header"
 import { MapPin, Clock, Phone } from "lucide-react"
 import Image from "next/image"
 
-
 interface LocationSectionProps {
   textColor?: string
 }
@@ -16,11 +15,14 @@ export default function LocationSection({ textColor = "text-custom-white" }: Loc
       <div className="grid md:grid-cols-2 gap-8 mt-8">
         <FadeInSection delay={0.1}>
           <div className="bg-custom-white rounded-lg overflow-hidden h-full shadow-md">
-            <Image
-              src="/placeholder.svg?height=400&width=600"
-              alt="Bánh Mì & More storefront"
-              className="w-full h-64 object-cover"
-            />
+            <div className="relative w-full h-64">
+              <Image
+                src="/placeholder.svg?height=400&width=600"
+                alt="Bánh Mì & More storefront"
+                fill
+                className="object-cover"
+              />
+            </div>
             <div className="p-6 space-y-4">
               <div className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-custom-orange mt-1" />
