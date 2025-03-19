@@ -1,6 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-import tailwindcssAnimate from 'tailwindcss-animate';
-
 module.exports = {
   darkMode: ["class"],
   content: [
@@ -55,12 +53,12 @@ module.exports = {
         },
         // Custom colors
         custom: {
-          orange: "#FF8E33", // Primary orange
-          "dark-orange": "#E67300", // Darker orange for contrast and hover states
-          teal: "#2DD4BF", // Teal for accents and interactive elements
-          white: "#FFFFFF", // Pure white for text and backgrounds
-          "dark-gray": "#333333", // Dark gray for text and headings
-          "light-gray": "#F5F5F5", // Light gray for backgrounds and dividers
+          orange: "#FF8E33",
+          "dark-orange": "#E67300", // Darker orange for contrast
+          teal: "#2DD4BF", // Teal for buttons and accents
+          white: "#FFFFFF",
+          "dark-gray": "#333333",
+          "light-gray": "#F5F5F5",
         },
       },
       borderRadius: {
@@ -85,9 +83,19 @@ module.exports = {
       backgroundImage: {
         "pattern-dots": "radial-gradient(#2DD4BF 2px, transparent 2px)",
         "pattern-lines": "repeating-linear-gradient(45deg, #2DD4BF, #2DD4BF 2px, transparent 2px, transparent 10px)",
+        "pattern-noise":
+          "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")",
+          "pattern-grid":
+          "linear-gradient(to right, rgba(255, 142, 51, 0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 142, 51, 0.1) 1px, transparent 1px)",
+        "pattern-diagonal":
+          "repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.25) 1px, transparent 1px, transparent 6px)",
+        "pattern-circles":
+          "radial-gradient(rgba(255, 255, 255, 0.2) 8px, transparent 8px), radial-gradient(rgba(255, 255, 255, 0.15) 15px, transparent 15px)",
+        "pattern-zigzag":
+          "linear-gradient(135deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%) 0 0, linear-gradient(225deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%) 0 0, linear-gradient(315deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%) 0 0, linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%) 0 0",
       },
     },
   },
-  plugins: [tailwindcssAnimate],
+  plugins: [require("tailwindcss-animate")],
 }
 

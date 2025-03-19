@@ -75,7 +75,7 @@ export function HeroCarousel({ slides, autoSlideInterval = 6000 }: HeroCarouselP
                 <div className="flex flex-col items-center">
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Link href={slide.buttonLink}>
-                      <Button size="lg">
+                      <Button size="xl">
                         {slide.buttonText}
                         <ArrowRight className="ml-2 h-5 w-5" />
                       </Button>

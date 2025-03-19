@@ -84,7 +84,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-xl font-medium text-custom-white hover:text-custom-teal transition-colors relative font-sans ${
+                className={`text-xl font-medium text-custom-white hover:text-orange-500 transition-colors relative font-sans ${
                   isLinkActive(link.href)
                     ? "after:absolute after:bottom-[-8px] after:left-0 after:w-full after:h-[3px] after:bg-custom-teal"
                     : ""

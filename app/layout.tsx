@@ -28,7 +28,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${montserrat.variable} ${playfair.variable}`}>
-      <body className="font-sans">
+      <body className="font-serif">
           {children}
           <FixedOrderButton />
       </body>

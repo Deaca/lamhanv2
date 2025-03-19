@@ -24,7 +24,7 @@ export default function FixedOrderButton() {
 
   return (
     <div
-      className={`fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 transition-all duration-300 transform ${
+      className={`fixed bottom-16 right-4 md:bottom-6 md:right-6 z-50 transition-all duration-300 transform ${
         isVisible ? "translate-y-0 opacity-100" : "translate-y-16 opacity-0"
       }`}
     >

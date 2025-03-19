@@ -33,7 +33,9 @@ const deliveryPartners = [
 
 export default function OnlineOrderOptions() {
   return (
-    <div className="py-8">
+    <div className="py-2">
+      <div className="absolute inset-0 bg-pattern-noise opacity-5"></div>
+      <div className="absolute inset-0 bg-pattern-grid bg-[length:20px_20px] opacity-30"></div>
       {/* "Prefer to order directly" section above the cards */}
       <FadeInSection delay={0.1}>
         <div className="bg-custom-orange/10 backdrop-blur-sm rounded-lg p-8 text-center border border-custom-orange/20 shadow-md mb-12">

@@ -5,7 +5,9 @@ import { MultiImageSlider } from "@/components/multi-image-slider"
 
 export default function AboutUs() {
   return (
-    <section className="py-20 bg-custom-light-gray" id="about">
+    <section className="py-20 bg-custom-light-gray relative" id="about">
+      <div className="absolute inset-0 bg-pattern-noise opacity-5"></div>
+      <div className="absolute inset-0 bg-pattern-grid bg-[length:20px_20px] opacity-30"></div>
       <div className="container mx-auto px-4 max-w-[1600px]" >
         <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
           <div className="space-y-6">
